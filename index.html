@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Melissa Chávez | Junior Web Developer, Ottawa</title>
+  <meta name="description" content="Melissa Chávez is a junior web developer in Ottawa with a 3.9 GPA web development diploma and over a decade of English–Spanish translation, localization and project management experience.">
+  <link rel="canonical" href="https://melichavez.com/">
+
+  <!-- Social sharing preview (LinkedIn, Slack, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://melichavez.com/">
+  <meta property="og:title" content="Melissa Chávez | Junior Web Developer">
+  <meta property="og:description" content="Web developer and English–Spanish localization specialist based in Ottawa.">
+  <meta property="og:image" content="https://melichavez.com/images/melissa-640.jpg">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/theme.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="logo" href="#top" aria-label="Melissa Chávez, back to top">Melissa Chávez</a>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" hidden>
+        <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </span>
+        <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ===== Hero ===== -->
+    <section class="wrap hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="eyebrow">Junior Web Developer · English–Spanish Localization · Ottawa</p>
+        <h1 id="hero-title">Meaning, rebuilt in two languages: human and code.</h1>
+        <p class="hero__body">
+          For more than a decade I moved ideas between English and Spanish without
+          losing what they meant. Now I do the same between ideas and interfaces,
+          building accessible, well-structured websites and web apps.
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#work">See my work</a>
+          <a class="button button--ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <picture class="hero__portrait">
+        <source type="image/webp" srcset="images/melissa-320.webp 320w, images/melissa-640.webp 640w" sizes="(min-width: 48rem) 12rem, 6.5rem">
+        <img src="images/melissa-640.jpg" srcset="images/melissa-320.jpg 320w, images/melissa-640.jpg 640w" sizes="(min-width: 48rem) 12rem, 6.5rem" width="640" height="640" alt="Portrait of Melissa Chávez, smiling">
+      </picture>
+    </section>
+
+    <!-- ===== Proof points ===== -->
+    <section class="wrap stats" aria-label="Highlights">
+      <ul class="stat-list">
+        <li class="stat"><span class="stat__value">3.9</span><span class="stat__label">GPA, Web Development diploma, Dean’s Honour List</span></li>
+        <li class="stat"><span class="stat__value">11+</span><span class="stat__label">books translated for a university press</span></li>
+        <li class="stat"><span class="stat__value">2M+</span><span class="stat__label">words translated, English ↔ Spanish</span></li>
+        <li class="stat"><span class="stat__value">20%</span><span class="stat__label">faster delivery as translation project manager</span></li>
+      </ul>
+    </section>
+
+    <!-- ===== Projects ===== -->
+    <section class="wrap section" id="work" aria-labelledby="work-title">
+      <h2 id="work-title">Selected projects</h2>
+      <p class="section__intro">
+        Full-stack and server-rendered applications from my Algonquin College diploma and my own practice.
+      </p>
+
+      <div class="project-grid">
+        <!-- To add a project: copy one <article> block, change the text and pick accent-1, -2 or -3. -->
+        <article class="project-card project-card--accent-1">
+          <h3>Zoodopt</h3>
+          <p class="project-card__kind">Pet adoption platform · Full stack</p>
+          <p>
+            People browse adoptable pets and apply online; shelter staff manage
+            listings and review applications.
+          </p>
+          <ul class="project-card__points">
+            <li>JWT authentication with role-based access for the public, shelter staff and admins</li>
+            <li>Accessible, responsive React interface on an ASP.NET Core API</li>
+          </ul>
+          <ul class="tag-list">
+            <li>React</li><li>ASP.NET Core</li><li>PostgreSQL</li>
+          </ul>
+          <!-- TODO: add <a class="project-card__link" href="REPO-OR-DEMO-URL">View code</a> once the repo is public -->
+        </article>
+
+        <article class="project-card project-card--accent-2">
+          <h3>Cocktail Finder</h3>
+          <p class="project-card__kind">API-driven web app</p>
+          <p>
+            Opens on a random cocktail with its full recipe, then lets you search by name
+            or filter by category, ingredient or type using TheCocktailDB API.
+          </p>
+          <ul class="project-card__points">
+            <li>Express server with EJS templates rendering results on the server</li>
+            <li>Turns the API’s 15 separate ingredient and measure fields into clean recipe lists</li>
+          </ul>
+          <ul class="tag-list">
+            <li>Node.js</li><li>Express</li><li>EJS</li><li>REST API</li>
+          </ul>
+          <!-- TODO: add repo link -->
+        </article>
+
+        <article class="project-card project-card--accent-3">
+          <h3>Book Notes</h3>
+          <p class="project-card__kind">Reading log with a database</p>
+          <p>
+            Search the Open Library API, add a book with its cover, then write,
+            rate, edit or delete reviews saved in PostgreSQL.
+          </p>
+          <ul class="project-card__points">
+            <li>Full create, read, update and delete flow</li>
+            <li>Parameterized SQL queries to keep user input out of the query text</li>
+          </ul>
+          <ul class="tag-list">
+            <li>Node.js</li><li>Express</li><li>PostgreSQL</li><li>EJS</li>
+          </ul>
+          <!-- TODO: add repo link -->
+        </article>
+      </div>
+
+      <p class="more-link">
+        <a class="text-link" href="https://github.com/MelDevCode">More of my code on GitHub <span aria-hidden="true">→</span></a>
+      </p>
+    </section>
+
+    <!-- ===== Experience (the on-page resume) ===== -->
+    <section class="wrap section" id="experience" aria-labelledby="experience-title">
+      <h2 id="experience-title">Experience</h2>
+
+      <ol class="timeline">
+        <li class="role">
+          <div class="role__head">
+            <h3>Copyeditor &amp; Localization Specialist</h3>
+            <p class="role__date"><time datetime="2025-04">Apr 2025</time> – Present</p>
+          </div>
+          <p class="role__org">WPP Production (formerly Hogarth) · Remote</p>
+          <p>
+            Localize, edit and proofread web, interactive, email and marketing content into
+            Chilean Spanish for a global consumer technology brand ahead of product launches,
+            applying brand voice, style-guide and accessibility standards.
+          </p>
+        </li>
+
+        <li class="role">
+          <div class="role__head">
+            <h3>Language Specialist &amp; Project Manager</h3>
+            <p class="role__date"><time datetime="2017-04">Apr 2017</time> – Present</p>
+          </div>
+          <p class="role__org">English UC, Santiago, Chile · Remote</p>
+          <p>
+            Manage translation projects from quote to delivery. Helped establish the translation
+            department, translated 11+ non-fiction books for a university press (including titles
+            in the MIT Press Essential Knowledge series) and a MOOC course, and built terminology
+            databases with a four-person team, cutting delivery times by 20%.
+          </p>
+        </li>
+
+        <li class="role">
+          <div class="role__head">
+            <h3>Assistant Manager &amp; Floor Supervisor</h3>
+            <p class="role__date"><time datetime="2026-03">Mar 2026</time> – <time datetime="2026-08">Aug 2026</time></p>
+          </div>
+          <p class="role__org">Encanto Café, Manotick, ON</p>
+          <p>
+            Promoted from barista to assistant manager within four months. Administered the Square
+            POS (item library, register layout, printer profiles and inventory tracking), set up the
+            café’s Uber Eats menu at launch, and trained and supervised front-of-house staff.
+          </p>
+        </li>
+
+        <li class="role">
+          <div class="role__head">
+            <h3>Freelance Translator &amp; Interpreter</h3>
+            <p class="role__date"><time datetime="2012">2012</time> – Present</p>
+          </div>
+          <p class="role__org">Self-employed · Chile and remote</p>
+          <p>
+            Legal, technical, engineering and medical translation (English ↔ Spanish) for agencies
+            including Bridge Language Group and LAP Translations, and on-site consecutive interpretation
+            for technical machinery training at Coca-Cola Andina.
+          </p>
+        </li>
+
+        <li class="role">
+          <div class="role__head">
+            <h3>In-House Translator</h3>
+            <p class="role__date"><time datetime="2015-01">Jan 2015</time> – <time datetime="2016-12">Dec 2016</time></p>
+          </div>
+          <p class="role__org">Bnamericas, Santiago, Chile</p>
+          <p>
+            Translated daily business and industry news on deadline, and introduced translation
+            software that reduced turnaround times by 15%.
+          </p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===== Education + Skills ===== -->
+    <section class="wrap section two-col" aria-label="Education and skills">
+      <div>
+        <h2>Education</h2>
+        <ul class="plain-list">
+          <li>
+            <h3>Web Development &amp; Internet Applications Diploma</h3>
+            <p class="role__org">Algonquin College, Ottawa · 2024 – 2025</p>
+            <p>3.9 GPA · Dean’s Honour List, four terms</p>
+          </li>
+          <li>
+            <h3>Master’s Degree, English–Spanish Translation</h3>
+            <p class="role__org">Pontificia Universidad Católica de Chile · 2013 – 2015</p>
+          </li>
+          <li>
+            <h3>Diploma, English–Spanish Simultaneous Interpretation</h3>
+            <p class="role__org">Instituto Profesional EATRI · 2015</p>
+          </li>
+          <li>
+            <h3>Bachelor’s Degree, English–Spanish Translation</h3>
+            <p class="role__org">Universidad Chileno Británica de Cultura · 2009 – 2012</p>
+            <p>Graduated with highest distinction</p>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Skills</h2>
+        <dl class="skills">
+          <dt>Development</dt>
+          <dd>HTML, CSS, JavaScript, React, Node.js, Express, C#, ASP.NET Core, PHP, Laravel, SQL, PostgreSQL, MySQL, Git and GitHub</dd>
+          <dt>Design</dt>
+          <dd>Figma, Adobe Illustrator, InDesign, Photoshop</dd>
+          <dt>Localization</dt>
+          <dd>Trados Studio, MemoQ, Wordfast, terminology management, style guides, linguistic QA</dd>
+          <dt>Languages</dt>
+          <dd>Spanish (native), English (full professional), Portuguese and Japanese (basic)</dd>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="wrap section contact" id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Let’s talk</h2>
+      <p class="section__intro">
+        I’m looking for junior web developer roles in Ottawa or remote, and I’m open to
+        localization work. Email is the best way to reach me.
+      </p>
+      <ul class="contact-list">
+        <li><a class="button button--primary" href="mailto:melchavez2@gmail.com">melchavez2@gmail.com</a></li>
+        <li><a class="button button--ghost" href="https://www.linkedin.com/in/melichavez">LinkedIn</a></li>
+        <li><a class="button button--ghost" href="https://github.com/MelDevCode">GitHub</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Melissa Chávez. Built by hand in HTML and CSS, in two languages.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,614 @@
+/* =========================================================
+   melichavez.com — v1 stylesheet
+   Mobile-first: base styles target small screens; the
+   @media (min-width: …) blocks at the bottom add layout
+   for wider screens.
+   ========================================================= */
+
+/* ---------- 1. Design tokens ----------
+   Change a colour or size here and it updates everywhere. */
+:root {
+  /* Colours: palette B "Slate and cobalt" */
+  --color-paper: #f3f5f8;      /* page background */
+  --color-surface: #ffffff;    /* cards */
+  --color-ink: #0f1a2b;        /* headings, main text */
+  --color-text: #273244;       /* body text */
+  --color-muted: #4f5b6d;      /* secondary text (6.3:1 contrast) */
+  --color-line: rgba(15, 26, 43, 0.14);
+  --color-header-bg: rgba(243, 245, 248, 0.94);
+  --color-tag-border: rgba(15, 26, 43, 0.3);
+  --color-track: #d9dfea;      /* theme toggle background */
+
+  /* Photo filter (none for now; kept as a hook for later tweaks) */
+  --photo-filter: none;
+
+  /* One accent. --color-accent is for borders and decoration (5.7:1);
+     --color-accent-text is for text and passes WCAG AA (7.2:1). */
+  --color-accent: #3355d1;
+  --color-accent-text: #2846b8;
+
+  /* Supporting colours: decoration only (project card borders), never text */
+  --color-accent-2: #12a594;   /* teal */
+  --color-accent-3: #f0b429;   /* amber */
+
+  /* Type */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+
+  /* Spacing scale */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4.5rem;
+
+  --max-width: 64rem;
+  --gutter: 1.25rem;
+  --radius: 6px;
+}
+
+/* ---------- 1b. Dark theme ----------
+   Same token names, new values. Applied when <html data-theme="dark">
+   (set by js/theme.js). Every text colour checked: 7:1 or better. */
+[data-theme="dark"] {
+  color-scheme: dark;          /* dark scrollbars and form controls */
+  --color-paper: #14181f;      /* deep slate: a hint of blue, calmer than navy */
+  --color-surface: #1d222b;
+  --color-ink: #eef2f8;
+  --color-text: #cdd5e1;
+  --color-muted: #a3aec0;
+  --color-line: rgba(238, 242, 248, 0.14);
+  --color-header-bg: rgba(20, 24, 31, 0.94);
+  --color-tag-border: rgba(238, 242, 248, 0.3);
+  --color-track: #2a303b;
+
+  --color-accent: #6f8cff;
+  --color-accent-text: #93a9ff;
+  --color-accent-2: #2cc4b0;
+  --color-accent-3: #f5c451;
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 106.25%; /* 17px when the browser default is 16px. A % (not px) respects
+                         visitors who set a larger default font in their browser. */
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* stops the sticky header covering section titles */
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3 {
+  color: var(--color-ink);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 3px solid var(--color-accent-text);
+  outline-offset: 3px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Hidden until a keyboard user presses Tab */
+.skip-link {
+  position: absolute;
+  left: var(--space-2);
+  top: -4rem;
+  z-index: 100;
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  border-radius: var(--radius);
+}
+.skip-link:focus {
+  top: var(--space-2);
+}
+
+/* ---------- 3. Header ---------- */
+.site-header {
+  /* Scrolls away on phones (saves screen space); pinned from tablet up, see section 12 */
+  z-index: 10;
+  background: var(--color-header-bg);
+  border-bottom: 1px solid var(--color-line);
+  backdrop-filter: blur(6px);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* on very narrow phones the nav drops below the name */
+  gap: 0.25rem var(--space-2);
+  padding-block: 0.875rem;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--color-ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-list {
+  display: flex;
+  gap: 0.875rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+}
+
+.nav-list a {
+  display: inline-block;
+  padding-block: 0.375rem; /* bigger tap target */
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-list a:hover {
+  border-bottom-color: var(--color-accent);
+}
+
+.site-header nav {
+  margin-left: auto; /* keeps nav and toggle together on the right */
+}
+
+/* Sun and moon switch */
+.theme-toggle {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-track);
+  cursor: pointer;
+}
+
+.theme-toggle[hidden] {
+  display: none;
+}
+
+.theme-toggle__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 1.625rem;
+  border-radius: 999px;
+  color: var(--color-muted);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.theme-toggle__icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Light mode: the sun is "on" */
+.theme-toggle__icon--sun {
+  background: var(--color-surface);
+  color: var(--color-accent-text);
+}
+
+/* Dark mode: the moon is "on" */
+[data-theme="dark"] .theme-toggle__icon--sun {
+  background: transparent;
+  color: var(--color-muted);
+}
+
+[data-theme="dark"] .theme-toggle__icon--moon {
+  background: var(--color-accent);
+  color: var(--color-paper);
+}
+
+/* ---------- 4. Hero ---------- */
+.hero {
+  display: flex;
+  flex-direction: column-reverse; /* photo above text on phones */
+  gap: var(--space-4);
+  padding-block: var(--space-5) var(--space-4);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-accent-text);
+  margin-bottom: var(--space-2);
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.12;
+  max-width: 16ch;
+  margin-bottom: var(--space-3);
+}
+
+.hero__body {
+  font-size: 1.125rem;
+  max-width: 52ch;
+  margin-bottom: var(--space-4);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hero__portrait img {
+  width: 6.5rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;                      /* circle */
+  box-shadow: 0 0 0 1px var(--color-line); /* neutral hairline; a shadow doesn't add to the size like a border does */
+  filter: var(--photo-filter);
+}
+
+/* ---------- 5. Buttons & links ---------- */
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--color-ink);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.button--primary {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+.button--primary:hover {
+  background: var(--color-accent-text);
+  border-color: var(--color-accent-text);
+}
+
+.button--ghost {
+  color: var(--color-ink);
+}
+.button--ghost:hover {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.text-link {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-ink);
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 4px;
+}
+
+/* ---------- 6. Stats ---------- */
+.stat-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3) var(--space-2);
+  margin: 0;
+  padding: var(--space-3) 0 var(--space-4);
+  list-style: none;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat__value {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--color-accent-text);
+}
+
+.stat__label {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  max-width: 22ch;
+}
+
+/* ---------- 7. Sections ---------- */
+.section {
+  padding-block: var(--space-5);
+  border-top: 1px solid var(--color-line);
+}
+
+.section h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.75rem;
+  margin-bottom: var(--space-2);
+}
+
+.section__intro {
+  max-width: 60ch;
+  color: var(--color-muted);
+  margin-bottom: var(--space-4);
+}
+
+/* ---------- 8. Project cards ---------- */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-top: 4px solid var(--color-ink);
+  border-radius: var(--radius);
+}
+
+.project-card--accent-1 { border-top-color: var(--color-accent); }
+.project-card--accent-2 { border-top-color: var(--color-accent-2); }
+.project-card--accent-3 { border-top-color: var(--color-accent-3); }
+
+.project-card h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.375rem;
+}
+
+.project-card__kind {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-accent-text);
+  margin-top: -0.5rem;
+}
+
+.project-card__points {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.9375rem;
+  color: var(--color-muted);
+}
+
+.project-card__points li + li {
+  margin-top: 0.25rem;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: auto 0 0; /* pushes tags to the bottom of the card */
+  padding: 0.75rem 0 0;
+  list-style: none;
+  border-top: 1px solid var(--color-line);
+}
+
+.tag-list li {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  padding: 0.25rem 0.625rem;
+  border: 1px solid var(--color-tag-border);
+  border-radius: 999px;
+}
+
+.more-link {
+  margin-top: var(--space-4);
+}
+
+/* ---------- 9. Experience timeline ---------- */
+.timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.role {
+  padding-block: var(--space-3);
+  border-top: 1px solid var(--color-line);
+}
+
+.role:last-child {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.role__head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.role h3,
+.plain-list h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.1875rem;
+}
+
+.role__date {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.role__org {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-accent-text);
+  margin-block: 0.25rem 0.5rem;
+}
+
+.role p:last-child {
+  max-width: 68ch;
+}
+
+/* ---------- 10. Education & skills ---------- */
+.two-col {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.plain-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plain-list li + li {
+  margin-top: var(--space-3);
+}
+
+.skills {
+  margin: 0;
+}
+
+.skills dt {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-accent-text);
+}
+
+.skills dd {
+  margin: 0.25rem 0 var(--space-3);
+}
+
+/* ---------- 11. Contact & footer ---------- */
+.contact-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer {
+  padding-block: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--color-line);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+}
+
+/* ---------- 12. Wider screens ---------- */
+
+/* Tablet: 768px and up */
+@media (min-width: 48rem) {
+  :root {
+    --gutter: 2rem;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+  }
+
+  .nav-list {
+    gap: var(--space-3);
+  }
+
+  .hero {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start; /* photo follows the copy instead of hugging the far edge */
+    gap: var(--space-6);
+    padding-block: var(--space-6) var(--space-5);
+  }
+
+  .hero__portrait img {
+    width: 12rem;
+  }
+
+  .stat-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .role__head {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+
+  .role__date {
+    flex-shrink: 0;
+  }
+}
+
+/* Desktop: 1024px and up */
+@media (min-width: 64rem) {
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .two-col {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .section h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Respect users who ask their OS for less motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .button,
+  .theme-toggle__icon {
+    transition: none;
+  }
+}
