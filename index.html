@@ -6,9 +6,15 @@
   <title>Melissa Chávez | Junior Web Developer, Ottawa</title>
   <meta name="description" content="Melissa Chávez is a junior web developer in Ottawa with a 3.9 GPA web development diploma and over a decade of English–Spanish translation, localization and project management experience.">
   <link rel="canonical" href="https://melichavez.com/">
+  <!-- Tell search engines this page also exists in Spanish -->
+  <link rel="alternate" hreflang="en" href="https://melichavez.com/">
+  <link rel="alternate" hreflang="es" href="https://melichavez.com/es/">
+  <link rel="alternate" hreflang="x-default" href="https://melichavez.com/">
 
   <!-- Social sharing preview (LinkedIn, Slack, etc.) -->
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_CA">
+  <meta property="og:locale:alternate" content="es_LA">
   <meta property="og:url" content="https://melichavez.com/">
   <meta property="og:title" content="Melissa Chávez | Junior Web Developer">
   <meta property="og:description" content="Web developer and English–Spanish localization specialist based in Ottawa.">
@@ -21,6 +27,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/theme.js"></script>
+  <script src="js/lang-menu.js" defer></script>
+  <script src="js/scroll-effects.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -35,6 +43,18 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+      <details class="lang-menu">
+        <summary class="lang-menu__toggle">
+          <svg class="lang-menu__globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span class="visually-hidden">Language: English</span>
+          <span aria-hidden="true">EN</span>
+          <svg class="lang-menu__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <ul class="lang-menu__list">
+          <li><a href="./" hreflang="en" lang="en" aria-current="true">English <span aria-hidden="true">✓</span></a></li>
+          <li><a href="es/" hreflang="es" lang="es">Español</a></li>
+        </ul>
+      </details>
       <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" hidden>
         <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
