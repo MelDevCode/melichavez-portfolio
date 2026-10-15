@@ -28,9 +28,12 @@ with plain HTML, CSS and a little JavaScript. No frameworks, no build step and n
 
 ```
 melichavez-portfolio/
-├── index.html        page content
+├── index.html        page content (English)
+├── es/index.html     page content (Spanish); keep both pages in sync
 ├── css/styles.css    all styling: design tokens at the top, dark theme below them
 ├── js/theme.js       light/dark switch
+├── js/lang-menu.js   globe language menu (close on outside click / Escape)
+├── js/scroll-effects.js  active nav link and section fade-in
 ├── images/           portrait in two sizes (WebP + JPEG)
 └── favicon.svg       browser-tab icon
 ```
@@ -70,14 +73,14 @@ and visit http://localhost:5500.
 
 ## Deployment
 
-The site is static and hosted on Hostinger. To deploy, upload `index.html`,
+The site is static and hosted on Hostinger. To deploy, upload `index.html`, `es/`,
 `favicon.svg`, `css/styles.css`, `js/` and `images/` to `public_html`.
 
 ## Roadmap
 
-- [ ] English/Spanish language switch (`/es/` pages with `hreflang`)
-- [ ] Active menu highlighting while scrolling
-- [ ] Subtle fade-in for sections (respecting reduced-motion settings)
+- [x] English/Spanish language switch (`/es/` pages with `hreflang`)
+- [x] Active menu highlighting while scrolling
+- [x] Subtle fade-in for sections (respecting reduced-motion settings)
 - [ ] Print-ready resume stylesheet
 - [ ] Structured data (JSON-LD) for search engines
 - [ ] Project case studies and live demos

@@ -188,6 +188,12 @@ a {
   border-bottom-color: var(--color-accent);
 }
 
+/* The section you're currently reading (set by js/scroll-effects.js) */
+.nav-list a[aria-current="true"] {
+  color: var(--color-accent-text);
+  border-bottom-color: var(--color-accent);
+}
+
 .site-header nav {
   margin-left: auto; /* keeps nav and toggle together on the right */
 }
@@ -451,6 +457,19 @@ a {
 .section {
   padding-block: var(--space-5);
   border-top: 1px solid var(--color-line);
+}
+
+/* Fade-in on scroll. Only active when js/scroll-effects.js adds
+   .reveal-ready to <html>, so content is never hidden without JavaScript. */
+.reveal-ready .section {
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-ready .section.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 .section h2 {
